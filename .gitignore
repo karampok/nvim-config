@@ -1,0 +1,6 @@
+*~
+.undo/*
+go/bin/
+gotags/
+plugged/
+sessions/
