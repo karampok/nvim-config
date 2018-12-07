@@ -1,28 +1,28 @@
-function! s:buflist()
-  redir => l:ls
-  silent ls
-  redir END
-  return split(l:ls, '\n')
-endfunction
+" function! s:buflist()
+"   redir => l:ls
+"   silent ls
+"   redir END
+"   return split(l:ls, '\n')
+" endfunction
 
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
+" function! s:bufopen(e)
+"   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+" endfunction
 
-let g:ctrlp_map = ''
-let g:ctrlp_cmd = ''
-if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-elseif executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-endif
+" let g:ctrlp_map = ''
+" let g:ctrlp_cmd = ''
+" if executable('rg')
+"   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+" elseif executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+"   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" endif
 
-command! -bang -nargs=* FZFRg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '
-      \      . shellescape(<q-args>), 1, <bang>0
-      \ )
+" command! -bang -nargs=* FZFRg
+"   \ call fzf#vim#grep(
+"   \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '
+"   \      . shellescape(<q-args>), 1, <bang>0
+"   \ )
 
 nnoremap <C-p>     :FZFFiles<cr>
 nnoremap <leader>f :FZFFiles<cr>

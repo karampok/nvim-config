@@ -4,7 +4,7 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 let g:fzf_command_prefix = 'FZF'
-let g:fzf_layout = { 'down': '~20%' }
+"let g:fzf_layout = { 'down': '~20%' }
 
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
@@ -12,7 +12,7 @@ Plug 'morhetz/gruvbox'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/gitspace2/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
+let g:vimwiki_list = [{'path': '~/gitspace/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
 
 Plug 'ntpeters/vim-better-whitespace'
 
