@@ -71,17 +71,15 @@ let g:ale_go_gometalinter_options =
 
 augroup config#go
   autocmd!
-  " autocmd Filetype go
-  "   \ nmap <buffer> <leader>r <plug>(go-run) |
-  "   \ nmap <buffer> <leader>t <plug>(go-test) |
-  "   \ nmap <buffer> <leader>e <plug>(go-error) |
-  "   \ nmap <buffer> gd <plug>(go-def) |
-  "   \ nmap <buffer> <c-]> <plug>(go-def-vertical) |
-  "   \ nmap <buffer> <leader>i <plug>(go-info)|
-  "   \ command! -bang A call go#alternate#Switch(<bang>0, 'edit') |
-  "   \ command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit') |
-  "   \ command! -bang AS call go#alternate#Switch(<bang>0, 'split') |
-  "   \ compiler go
+  autocmd Filetype go
+    \ nmap <buffer> <leader>e <plug>(go-error) |
+    \ nmap <buffer> gd <plug>(go-def) |
+    \ nmap <buffer> <c-]> <plug>(go-def-vertical) |
+    \ nmap <buffer> <leader>i <plug>(go-info) |
+    \ command! -bang A call go#alternate#Switch(<bang>0, 'edit') |
+    \ command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit') |
+    \ command! -bang AS call go#alternate#Switch(<bang>0, 'split') |
+    \ compiler go
   autocmd! BufEnter *.go
       \ setlocal foldmethod=syntax foldnestmax=1 foldcolumn=2 |
       \ setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab

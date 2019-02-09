@@ -10,6 +10,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'airblade/vim-gitgutter'
 
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/gitspace/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
