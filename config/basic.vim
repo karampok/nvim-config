@@ -19,10 +19,13 @@ let g:netrw_altfile = 1
 set swapfile                    " Keep swapfiles
 set directory=~/.config/nvim/.tmp
 set backupdir=~/.config/nvim/.tmp
+set viewdir=~/.local/share/nvim/view
 " }}}
 
 " UI {{{
 set numberwidth=4
+" }}}
+
 " Behaviors {{{
 set wildmode=list:longest " use emacs-style tab completion when selecting files, etc
 set foldlevelstart=99
@@ -46,3 +49,5 @@ elseif executable('ack')
   set grepformat=%f:%l:%c:%m
 endif
 " }}}
+
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor

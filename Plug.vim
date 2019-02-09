@@ -26,6 +26,8 @@ Plug 'shime/vim-livedown'
 Plug 'zhou13/vim-easyescape'
 Plug 'itchyny/lightline.vim'
 
+Plug 'pedrohdz/vim-yaml-folds'
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }

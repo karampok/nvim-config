@@ -43,7 +43,7 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead *.hcl setf conf
   autocmd BufRead,BufNewFile *.gotmpl set filetype=gotexttmpl
   autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
-  autocmd BufNewFile,BufRead *.vim setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd BufNewFile,BufRead *.vim setlocal expandtab shiftwidth=2 tabstop=2 foldmethod=marker
   autocmd BufNewFile,BufRead *.sh setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
 

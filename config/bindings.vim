@@ -13,13 +13,8 @@ command! Q q
 command! WQ wq
 command! Wq wq
 
-" :inoremap <esc> <nop>
-cnoremap jk <ESC>
-cnoremap kj <ESC>
-
-map <leader><leader> :bp<cr>
-
 " }}}
+
 " Spelling {{{
 " Toggle spelling mode with ,s
 " nmap <silent> ss :set spell!<CR>

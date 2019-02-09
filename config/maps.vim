@@ -27,5 +27,17 @@ nnoremap <silent> <leader><space> :<C-u>call <SID>clear_highlight()<CR>
 
 imap jj <Esc>
 nnoremap <silent> <F5> :source ~/.config/nvim/init.vim<CR>
+
+" Keeps search terms in the middle of vim buffer
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+inoremap <esc> <nop>
+cnoremap jk <ESC>
+cnoremap kj <ESC>
+
+map <leader><leader> :bp<cr>
+
+
+"TODO.
+"nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
