@@ -24,7 +24,6 @@
 "   \      . shellescape(<q-args>), 1, <bang>0
 "   \ )
 
-nnoremap <C-p>     :FZFFiles<cr>
 nnoremap <leader>f :FZFFiles<cr>
 nnoremap <leader>m :FZFHistory<cr>
 nnoremap <leader>F :FZFBTags<cr>

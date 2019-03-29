@@ -26,6 +26,11 @@ let g:indent_guides_exclude_filetypes = ['help', 'go']
 Plug 'shime/vim-livedown'
 Plug 'zhou13/vim-easyescape'
 Plug 'itchyny/lightline.vim'
+let g:lightline = {'colorscheme': 'jellybeans'}
+
+Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsShortcutJump = '<C-l>'
+
 
 Plug 'pedrohdz/vim-yaml-folds'
 

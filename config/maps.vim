@@ -4,7 +4,7 @@ let mapleader = ","
 
 " Some useful quickfix shortcuts for quickfix
 map <C-n> :cn<CR>
-map <C-m> :cp<CR>
+map <C-p> :cp<CR>
 nnoremap <leader>a :cclose<CR>
 
 " put quickfix window always to the bottom
@@ -13,8 +13,9 @@ augroup quickfix
     autocmd FileType qf wincmd J
     autocmd FileType qf setlocal wrap
 augroup END
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
-nnoremap <leader>w :w!<cr>
+nnoremap <leader>w :w<cr>
 nnoremap <silent> <leader>q :q!<CR>
 
 " Remove search highlight
@@ -25,7 +26,6 @@ function! s:clear_highlight()
 endfunction
 nnoremap <silent> <leader><space> :<C-u>call <SID>clear_highlight()<CR>
 
-imap jj <Esc>
 nnoremap <silent> <F5> :source ~/.config/nvim/init.vim<CR>
 
 " Keeps search terms in the middle of vim buffer
