@@ -32,7 +32,7 @@ nnoremap <silent> <F5> :source ~/.config/nvim/init.vim<CR>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-inoremap <esc> <nop>
+" inoremap <esc> <nop>
 cnoremap jk <ESC>
 cnoremap kj <ESC>
 
