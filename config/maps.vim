@@ -38,6 +38,10 @@ cnoremap kj <ESC>
 
 map <leader><leader> :bp<cr>
 
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+nnoremap \ :NERDTreeToggle<CR>
 
 "TODO.
 "nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel

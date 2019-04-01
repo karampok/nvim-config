@@ -11,10 +11,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
 
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/gitspace/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
 
+Plug 'udalov/kotlin-vim'
+Plug 'scrooloose/nerdtree'
 Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'nathanaelkane/vim-indent-guides'

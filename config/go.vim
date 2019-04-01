@@ -40,7 +40,7 @@ let g:go_autodetect_gopath = 1
 
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_enabled = ['vet']
-let g:go_metalinter_deadline = "5s"
+let g:go_metalinter_deadline = "50s"
 let g:go_metalinter_autosave_enabled = ['vet']
 
 
