@@ -6,7 +6,7 @@ let g:go_fmt_options = {
   \ 'goimports': '-local do/',
   \ }
 
-let g:go_term_enabled = 1
+let g:go_term_enabled = 0
 let g:go_term_mode = "split"
 let g:go_term_height = 13
 

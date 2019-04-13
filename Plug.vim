@@ -16,7 +16,6 @@ Plug 'mileszs/ack.vim'
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/gitspace/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
 
-Plug 'udalov/kotlin-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'ntpeters/vim-better-whitespace'
 
