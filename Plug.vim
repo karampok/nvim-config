@@ -36,14 +36,14 @@ let g:AutoPairsShortcutJump = '<C-l>'
 
 Plug 'pedrohdz/vim-yaml-folds'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-go', { 'do': 'make' }
+" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
-let g:deoplete#enable_at_startup =1
-let g:deoplete#enable_at_startup = 1
-let g:neopairs#enable = 1
+" let g:deoplete#enable_at_startup =1
+" let g:deoplete#enable_at_startup = 1
+" let g:neopairs#enable = 1
 call plug#end()
 
 
-call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
+" call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])

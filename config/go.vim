@@ -29,29 +29,24 @@ let g:go_debug_windows = {
       \ 'stack': 'botright 10new',
 \ }
 
-let g:go_test_prepend_name = 1
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 1
-let g:go_info_mode = "gocode"
+let g:go_info_mode = "gopls"
+let g:go_def_mode = "gopls"
 let g:go_auto_sameids = 0
 
+let g:go_test_prepend_name = 1
 let g:go_echo_command_info = 1
-let g:go_autodetect_gopath = 1
+let g:go_autodetect_gopath = 0
 
 let g:go_metalinter_autosave = 1
-let g:go_metalinter_enabled = ['vet']
 let g:go_metalinter_deadline = "50s"
-let g:go_metalinter_autosave_enabled = ['vet']
-
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
+" let g:go_metalinter_command='golangci-lint'
 
 let g:go_modifytags_transform = 'camelcase'
 
-let g:go_test_prepend_name = 1
-let g:go_def_mode = "guru"
-let g:go_echo_command_info = 1
-let g:go_autodetect_gopath = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_enabled = ['vet', 'golint']
 
 " let g:go_snippet_engine = 'ultisnips'
 
@@ -59,18 +54,12 @@ let s:go_tags_path = $HOME . '/.config/nvim/go/tags'
 let g:go_bin_path = $HOME . '/.config/nvim/go/bin'
 let $PATH .= ':' . g:go_bin_path
 
-let g:ale_go_gometalinter_options =
-      \ '--tests ' .
-      \ '--fast ' .
-      \ '--disable=gotype ' .
-      \ '--disable=gotypex ' .
-      \ '--exclude="should have comment" ' .
-      \ '--exclude="error return value not checked \(defer"'
+"au filetype go inoremap <buffer> . .<C-x><C-o>
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 augroup config#go
   autocmd!
   autocmd Filetype go
-    \ nmap <buffer> <leader>e <plug>(go-error) |
     \ nmap <buffer> gd <plug>(go-def) |
     \ nmap <buffer> <c-]> <plug>(go-def-vertical) |
     \ nmap <buffer> <leader>i <plug>(go-info) |
