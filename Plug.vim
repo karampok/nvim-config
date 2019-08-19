@@ -13,7 +13,9 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 
+Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
+Plug 'chazy/dirsettings'
 let g:vimwiki_list = [{'path': '~/gitspace/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
 
 Plug 'scrooloose/nerdtree'
@@ -35,6 +37,10 @@ let g:AutoPairsShortcutJump = '<C-l>'
 
 
 Plug 'pedrohdz/vim-yaml-folds'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'zchee/deoplete-go', { 'do': 'make' }

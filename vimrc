@@ -5,6 +5,7 @@ runtime! config/basic.vim
 runtime! config/bindings.vim
 runtime! config/sets.vim
 runtime! config/maps.vim
+runtime! config/journal.vim
 
 " ----------------------------------------
 " Plugin Configuration
