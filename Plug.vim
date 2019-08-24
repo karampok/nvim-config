@@ -14,8 +14,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 
 Plug 'mattn/calendar-vim'
-Plug 'vimwiki/vimwiki'
 Plug 'chazy/dirsettings'
+Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/gitspace/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
 
 Plug 'scrooloose/nerdtree'
@@ -35,6 +35,7 @@ let g:lightline = {'colorscheme': 'jellybeans'}
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsShortcutJump = '<C-l>'
 
+Plug 'kshenoy/vim-signature'
 
 Plug 'pedrohdz/vim-yaml-folds'
 
