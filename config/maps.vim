@@ -16,6 +16,7 @@ augroup END
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 nnoremap <leader>w :w<cr>
+nnoremap <leader>e :e<cr>
 nnoremap <silent> <leader>q :q!<CR>
 
 " Remove search highlight
@@ -38,10 +39,24 @@ cnoremap kj <ESC>
 
 map <leader><leader> :bp<cr>
 
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nmap <leader>gd :Gdiffsplit $REVIEW_BASE<cr>
+
+" cnoreabbrev Ack Ack!
+" nnoremap <Leader>a :Ack!<Space>
+
+tnoremap <Esc> <C-\><C-n>
+
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
 
 nnoremap \ :NERDTreeToggle<CR>
 
 "TODO.
 "nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+
+nmap <BS> dd
+inoremap <BS> <Esc>dd

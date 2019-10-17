@@ -31,7 +31,7 @@ let g:go_debug_windows = {
 
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 1
-let g:go_info_mode = "gopls"
+let g:go_info_mode = "guru"
 let g:go_def_mode = "gopls"
 let g:go_auto_sameids = 0
 
@@ -44,6 +44,8 @@ let g:go_metalinter_deadline = "50s"
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_enabled = ['vet', 'golint']
 " let g:go_metalinter_command='golangci-lint'
+let g:go_jump_to_error = 0
+
 
 let g:go_modifytags_transform = 'camelcase'
 
@@ -57,11 +59,11 @@ let $PATH .= ':' . g:go_bin_path
 "au filetype go inoremap <buffer> . .<C-x><C-o>
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+let g:go_def_mapping_enabled = 0
+
 augroup config#go
   autocmd!
   autocmd Filetype go
-    \ nmap <buffer> gd <plug>(go-def) |
-    \ nmap <buffer> <c-]> <plug>(go-def-vertical) |
     \ nmap <buffer> <leader>i <plug>(go-info) |
     \ nmap <buffer> <leader>r <Plug>(go-run) |
     \ nmap <buffer> <leader>t <Plug>(go-test) |
@@ -72,6 +74,22 @@ augroup config#go
     \ compiler go
   autocmd! BufEnter *.go
       \ setlocal foldmethod=syntax foldnestmax=1 foldcolumn=2 |
-      \ setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
+      \ setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab colorcolumn=100
 
 augroup END
+
+
+function! NeatFoldText()
+	let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+	let lines_count = v:foldend - v:foldstart + 1
+	let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+	let foldchar = matchstr(&fillchars, 'fold:\zs.')
+	let foldtextstart = strpart(repeat(foldchar, v:foldlevel*2) . line, 0, (80*2)/3)
+	let foldtextend = lines_count_text . repeat(foldchar, 8)
+	let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '', 'x', 'g')) + &foldcolumn
+	return foldtextstart . repeat(foldchar, 80-foldtextlength) . foldtextend
+endfunction
+
+highlight Folded ctermfg=White
+
+set foldtext=NeatFoldText()

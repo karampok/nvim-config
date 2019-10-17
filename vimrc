@@ -6,6 +6,7 @@ runtime! config/bindings.vim
 runtime! config/sets.vim
 runtime! config/maps.vim
 runtime! config/journal.vim
+runtime! config/review.vim
 
 " ----------------------------------------
 " Plugin Configuration
@@ -13,4 +14,5 @@ runtime! config/journal.vim
 
 runtime! config/fzf.vim
 runtime! config/go.vim
+runtime! config/coc.vim
 runtime! config/yaml.vim
