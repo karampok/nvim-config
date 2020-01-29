@@ -13,6 +13,7 @@ Plug 'google/jsonnet'
 Plug 'morhetz/gruvbox'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'benmills/vimux'
+Plug 'benmills/vimux-golang'
 Plug 'sebdah/vim-delve'
 let g:delve_use_vimux = 1
 
@@ -59,12 +60,14 @@ let g:lightline = {
       \ }
       \ }
 
+Plug 'samoshkin/vim-mergetool'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/committia.vim'
-Plug 'k0kubun/vim-open-github'
+Plug 'manasthakur/vimsessionist'
+let g:sessionist_directory = $HOME . '/.nvim-sessions'
 
 Plug 'editorconfig/editorconfig-vim'
 

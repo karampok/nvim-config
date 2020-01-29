@@ -31,7 +31,7 @@ let g:go_debug_windows = {
 
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 1
-let g:go_info_mode = "guru"
+let g:go_info_mode = "gopls"
 let g:go_def_mode = "gopls"
 let g:go_auto_sameids = 0
 
@@ -66,7 +66,8 @@ augroup config#go
   autocmd Filetype go
     \ nmap <buffer> <leader>i <plug>(go-info) |
     \ nmap <buffer> <leader>r <Plug>(go-run) |
-    \ nmap <buffer> <leader>t <Plug>(go-test) |
+    \ nmap <buffer> <leader>t :wa<CR> :GolangTestFocused<CR> |
+    \ map  <buffer>  <leader>ta :wa<CR> :GolangTestCurrentPackage<CR> |
     \ nmap <buffer> <leader>c <Plug>(go-build) |
     \ command! -bang A call go#alternate#Switch(<bang>0, 'edit') |
     \ command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit') |

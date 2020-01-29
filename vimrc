@@ -14,5 +14,9 @@ runtime! config/review.vim
 
 runtime! config/fzf.vim
 runtime! config/go.vim
-runtime! config/coc.vim
 runtime! config/yaml.vim
+runtime! config/coc.vim
+
+
+set foldlevelstart=1
+
