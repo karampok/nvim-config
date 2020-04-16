@@ -24,6 +24,8 @@ let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 0
 let g:go_highlight_format_strings = 1
 
+let g:go_doc_keywordprg_enabled = 0
+
 let g:go_debug_windows = {
       \ 'vars':  'leftabove 35vnew',
       \ 'stack': 'botright 10new',
@@ -40,10 +42,9 @@ let g:go_echo_command_info = 1
 let g:go_autodetect_gopath = 0
 
 let g:go_metalinter_autosave = 1
-let g:go_metalinter_deadline = "50s"
+let g:go_metalinter_deadline = "5s"
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_enabled = ['vet', 'golint']
-" let g:go_metalinter_command='golangci-lint'
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_jump_to_error = 0
 
 

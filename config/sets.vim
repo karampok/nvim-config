@@ -3,6 +3,8 @@ set nocompatible
 filetype off
 filetype plugin indent on
 
+syntax enable
+
 set ttyfast
 set laststatus=2
 set encoding=utf-8              " Set default encoding to UTF-8
@@ -27,14 +29,14 @@ set ignorecase               " Search case insensitive...
 set smartcase                " ... but not it begins with upper case
 set completeopt=menu,menuone
 set nocursorcolumn           " speed up syntax highlighting
-set nocursorline
+set cursorline
 set updatetime=300
 set pumheight=10             " Completion window max size
 set conceallevel=2           " Concealed text is completely hidden
 set lazyredraw
-syntax enable
 set t_Co=256
 set background=dark
+
 colorscheme gruvbox
 
 augroup filetypedetect

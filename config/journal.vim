@@ -13,4 +13,4 @@ function! ToggleCalendar()
 endfunction
 nnoremap <leader>c :call ToggleCalendar()<CR>
 nnoremap <leader>tt :VimwikiToggleListItem <CR>
-au BufNewFile */vimwiki/diary/*.wiki.md :silent 0r !~/bin/generate-vimwiki-diary-template.py '%'
+au BufNewFile *diary/2*.wiki.md :silent 0r !~/bin/generate-vimwiki-diary-template.py '%'

@@ -14,37 +14,29 @@ nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gr <Plug>(coc-references)
 nmap <silent>rn <Plug>(coc-rename)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" inoremap <silent><expr> <space>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<space>" :
-"       \ coc#refresh()
-"
-"
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"inoremap <expr> <space> pumvisible() ? "\<C-y>" : "\<space>"
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" Use <c-space> to trigger completion.
-" noremap <silent><expr> <c-space> coc#refresh()
+let g:coc_snippet_next = '<tab>'
 
 highlight link CocErrorSign GruvboxRed
 
-
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
     call CocAction('doHover')
-  endif
 endfunction
 
+
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " Remap for format selected region
 "vmap <leader>f  <Plug>(coc-format-selected)
@@ -56,8 +48,24 @@ nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 "" Do default action for next item.
-"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 "" Do default action for previous item.
-"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 "" Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+" :CocInstall coc-yank
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+  " let g:coc_global_extensions = [
+  "     \'coc-markdownlint',
+  "     \'coc-highlight',
+  "     \'coc-vetur',
+  "     \'coc-go',
+  "     \'coc-python',
+  "     \'coc-explorer',
+  "     \'coc-flutter', 
+  "     \'coc-json', 
+  "     \'coc-git'
+  "     \]

@@ -15,7 +15,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'benmills/vimux'
 Plug 'benmills/vimux-golang'
 Plug 'sebdah/vim-delve'
-let g:delve_use_vimux = 1
+"let g:delve_use_vimux = 1
 
 Plug 'mileszs/ack.vim'
 if executable('ag')
@@ -25,7 +25,7 @@ endif
 Plug 'mattn/calendar-vim'
 Plug 'chazy/dirsettings'
 Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/gitspace/vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
+let g:vimwiki_list = [{'path': '~/.vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
 
 Plug 'shime/vim-livedown'
 Plug 'zhou13/vim-easyescape'
@@ -37,8 +37,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'kshenoy/vim-signature'
-Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsShortcutJump = '<C-l>'
+" Plug 'jiangmiao/auto-pairs'
+" let g:AutoPairsShortcutJump = '<C-l>'
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
@@ -70,6 +70,12 @@ Plug 'manasthakur/vimsessionist'
 let g:sessionist_directory = $HOME . '/.nvim-sessions'
 
 Plug 'editorconfig/editorconfig-vim'
+
+Plug 'simnalamburt/vim-mundo'
+
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()

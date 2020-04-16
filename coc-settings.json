@@ -1,4 +1,9 @@
 {
+  "suggest.minTriggerInputLength": 2,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText":true,
+  "diagnostic.errorSign":"x",
+  "yank.highlight.enable":false,
   "languageserver": {
     "golang": {
       "command": "gopls",
