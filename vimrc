@@ -16,3 +16,4 @@ runtime! config/fzf.vim
 runtime! config/go.vim
 runtime! config/yaml.vim
 runtime! config/coc.vim
+inoremap <C-l> <esc>%%a

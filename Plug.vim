@@ -16,7 +16,7 @@ let g:lightline = {
       \ }
 
 
-
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 let g:fzf_command_prefix = 'FZF'
 "let g:fzf_layout = { 'down': '~20%' }
@@ -39,6 +39,7 @@ Plug 'sebdah/vim-delve'
 Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
 
+Plug 'scrooloose/syntastic'
 Plug 'shime/vim-livedown'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'
@@ -72,6 +73,7 @@ Plug 'bazelbuild/vim-bazel'
 Plug 'google/vim-jsonnet'
 Plug 'google/jsonnet'
 
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}

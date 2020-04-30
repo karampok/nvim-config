@@ -3,8 +3,16 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText":true,
   "diagnostic.errorSign":"x",
+  "codeLens.enable": true,
   "yank.highlight.enable":false,
+  "python.jediEnabled": false,
   "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
     "golang": {
       "command": "gopls",
       "args": ["serve", "-debug", "localhost:8484", "-rpc.trace", "-logfile", "/tmp/gopls.log"],
