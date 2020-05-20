@@ -36,6 +36,8 @@ set conceallevel=2           " Concealed text is completely hidden
 set lazyredraw
 set t_Co=256
 set background=dark
+set termguicolors
+
 
 colorscheme gruvbox
 
