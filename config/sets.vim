@@ -39,7 +39,6 @@ set background=dark
 set termguicolors
 
 
-colorscheme gruvbox
 
 augroup filetypedetect
   autocmd BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile

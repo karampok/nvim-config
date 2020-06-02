@@ -42,39 +42,35 @@ Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/syntastic'
 Plug 'shime/vim-livedown'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'kshenoy/vim-signature'
-" Plug 'jiangmiao/auto-pairs'
-" let g:AutoPairsShortcutJump = '<C-l>'
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'go']
+"Plug 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_exclude_filetypes = ['help', 'go']
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/committia.vim'
-Plug 'samoshkin/vim-mergetool'
-Plug 'manasthakur/vimsessionist'
-let g:sessionist_directory = $HOME . '/.nvim-sessions'
 
-Plug 'editorconfig/editorconfig-vim'
-
-Plug 'simnalamburt/vim-mundo'
+"Plug 'samoshkin/vim-mergetool'
+"Plug 'manasthakur/vimsessionist'
+"let g:sessionist_directory = $HOME . '/.nvim-sessions'
+"Plug 'editorconfig/editorconfig-vim'
+"Plug 'simnalamburt/vim-mundo'
 
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
-Plug 'google/vim-jsonnet'
-Plug 'google/jsonnet'
 
-Plug 'tmux-plugins/vim-tmux-focus-events'
+"Plug 'tmux-plugins/vim-tmux-focus-events'
 
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
+
+colorscheme gruvbox

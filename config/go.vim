@@ -75,9 +75,8 @@ augroup config#go
     \ command! -bang AS call go#alternate#Switch(<bang>0, 'split') |
     \ compiler go
   autocmd! BufEnter *.go
-      \ setlocal foldmethod=syntax foldnestmax=1 foldcolumn=2 |
+      \ setlocal foldmethod=syntax foldnestmax=1 foldcolumn=0 signcolumn=yes:1 |
       \ setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab colorcolumn=100
-
 augroup END
 
 
@@ -91,7 +90,5 @@ function! NeatFoldText()
 	let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '', 'x', 'g')) + &foldcolumn
 	return foldtextstart . repeat(foldchar, 80-foldtextlength) . foldtextend
 endfunction
-
 highlight Folded ctermfg=White
-
 set foldtext=NeatFoldText()
