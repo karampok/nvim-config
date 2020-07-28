@@ -1,4 +1,5 @@
 let g:vimwiki_list = [{'path': '~/.vimwiki', 'syntax': 'markdown', 'ext': '.wiki.md'}]
+let g:vimwiki_url_maxsave=0
 
 function! ToggleCalendar()
   execute ":Calendar"

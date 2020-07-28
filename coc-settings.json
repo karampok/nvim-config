@@ -1,9 +1,9 @@
 {
+  "coc.preferences.rootPatterns": [],
   "suggest.minTriggerInputLength": 2,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText":true,
   "diagnostic.errorSign":"x",
-  "codeLens.enable": true,
   "yank.highlight.enable":false,
   "python.jediEnabled": false,
   "languageserver": {

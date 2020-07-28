@@ -41,10 +41,10 @@ let g:go_test_prepend_name = 1
 let g:go_echo_command_info = 1
 let g:go_autodetect_gopath = 0
 
-let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave = 0
 let g:go_metalinter_deadline = "5s"
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave_enabled = []
+let g:go_metalinter_enabled = []
 let g:go_jump_to_error = 0
 
 
@@ -75,7 +75,7 @@ augroup config#go
     \ command! -bang AS call go#alternate#Switch(<bang>0, 'split') |
     \ compiler go
   autocmd! BufEnter *.go
-      \ setlocal foldmethod=syntax foldnestmax=1 foldcolumn=0 signcolumn=yes:1 |
+      \ setlocal foldmethod=syntax foldnestmax=3 foldlevel=10 foldcolumn=0 signcolumn=yes:1 |
       \ setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab colorcolumn=100
 augroup END
 
