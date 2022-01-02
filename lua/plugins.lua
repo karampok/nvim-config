@@ -31,7 +31,7 @@ require("packer").startup(
 
                 use 'folke/which-key.nvim'
         use 'kyazdani42/nvim-web-devicons'
-        use 'folke/trouble.nvim"'
+        -- use 'folke/trouble.nvim"'
 
         use {
             'npxbr/glow.nvim',
@@ -45,8 +45,8 @@ require("packer").startup(
 
 require("lualine").setup { options = {theme = "gruvbox"} }
 require("focus").setup({number = true})
-require("trouble").setup()
 require("which-key").setup()
+--require("trouble").setup()
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -58,3 +58,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+
+local saga = require 'lspsaga'
+saga.init_lsp_saga()

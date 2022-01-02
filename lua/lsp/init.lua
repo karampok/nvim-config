@@ -10,15 +10,9 @@ end
 local remap_buf = vim.api.nvim_buf_set_keymap
 
 local lsp_on_attach = function(client, bufnr)
-    if pcall(require, "cmp") and
-       pcall(require, "cmp_nvim_lsp") and
-       pcall(require, "luasnip") then
-
-
         require('cmp_nvim_lsp').setup()
 
         local cmp = require('cmp')
-        local ls = require('luasnip')
 
         cmp.setup({
             completion = {
@@ -33,40 +27,33 @@ local lsp_on_attach = function(client, bufnr)
             },
 
 
-            mapping = {
-                ['<Tab>'] = function(fallback)
-                    if vim.fn.pumvisible() == 1 then
-                        vim.fn.feedkeys(t('<C-n>'), 'n')
-                    elseif check_back_space() then
-                        vim.fn.feedkeys(t('<Tab>'), 'n')
-                    elseif ls.expand_or_jumpable() then
-                        vim.fn.feedkeys(t('<Plug>luasnip-expand-or-jump'), '')
-                    else
-                        fallback()
-                    end
-                end,
-                ['<S-Tab>'] = function(fallback)
-                    if vim.fn.pumvisible() == 1 then
-                        vim.fn.feedkeys(t('<C-p>'), 'n')
-                    elseif ls.jumpable(-1) then
-                        vim.fn.feedkeys(t('<Plug>luasnip-jump-prev'), '')
-                    else
-                        fallback()
-                    end
-                end,
-                ['<C-p>'] = cmp.mapping.select_prev_item(),
-                ['<C-n>'] = cmp.mapping.select_next_item(),
-                ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-e>'] = cmp.mapping.close(),
-                ['<CR>'] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
-                }),
-            }
+--             mapping = {
+--                 ['<Tab>'] = function(fallback)
+--                     if vim.fn.pumvisible() == 1 then
+--                         vim.fn.feedkeys(t('<C-n>'), 'n')
+--                     elseif check_back_space() then
+--                         vim.fn.feedkeys(t('<Tab>'), 'n')
+--                     else
+--                         fallback()
+--                     end
+--                 end,
+--                 ['<S-Tab>'] = function(fallback)
+--                     if vim.fn.pumvisible() == 1 then
+--                         vim.fn.feedkeys(t('<C-p>'), 'n')
+--                     else
+--                         fallback()
+--                     end
+--                 end,
+--                 ['<C-p>'] = cmp.mapping.select_prev_item(),
+--                 ['<C-n>'] = cmp.mapping.select_next_item(),
+--                 ['<C-f>'] = cmp.mapping.complete(),
+--                 ['<C-e>'] = cmp.mapping.close(),
+--                 ['<CR>'] = cmp.mapping.confirm({
+--                     behavior = cmp.ConfirmBehavior.Replace,
+--                     select = true,
+--                 }),
+--             }
         })
-    end
 
     require('lsp_signature').on_attach({
         bind = true,
@@ -88,20 +75,9 @@ local lsp_on_attach = function(client, bufnr)
 
     local opts = { noremap=true, silent=true }
 
-    remap_buf(bufnr, 'i', '<Tab>', '(pumvisible() ? "\\<C-n>" : "\\<Tab>")', {expr = true})
-    remap_buf(bufnr, 's', '<Tab>', '(pumvisible() ? "\\<C-n>" : "\\<Tab>")', {expr = true})
-
-    remap_buf(bufnr, 'i', '<a-j>', [[<Plug>(completion_next_source)]], {})
-    remap_buf(bufnr, 's', '<a-j>', [[<Plug>(completion_next_source)]], {})
-
-    -- Make up/down arrows behave in completion popups
-    -- without this they move up/down but v:completed_item remains empty
-    remap_buf(bufnr, 'i', '<down>', '(pumvisible() ? "\\<C-n>" : "\\<down>")', { noremap = true, expr = true })
-    remap_buf(bufnr, 'i', '<up>',   '(pumvisible() ? "\\<C-p>" : "\\<up>")',   { noremap = true, expr = true })
-
     remap_buf(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     remap_buf(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    remap_buf(bufnr, 'n', '<c-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    remap_buf(bufnr, 'n', 'c-k>',  '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     remap_buf(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     remap_buf(bufnr, 'n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     remap_buf(bufnr, 'v', 'ga', ':<C-U>lua vim.lsp.buf.range_code_action()<CR>', opts)
@@ -129,26 +105,26 @@ local lsp_on_attach = function(client, bufnr)
     remap_buf(bufnr, 'n', '<leader>lS', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
 
 
-    if client.resolved_capabilities.document_formatting then
-        remap_buf(bufnr, 'n', 'gq', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    end
-    if client.resolved_capabilities.document_range_formatting then
-        remap_buf(bufnr, 'v', 'gq', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    end
+    -- if client.resolved_capabilities.document_formatting then
+    --     remap_buf(bufnr, 'n', 'gq', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    -- end
+    -- if client.resolved_capabilities.document_range_formatting then
+    --     remap_buf(bufnr, 'v', 'gq', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    -- end
 
-    if client.resolved_capabilities.code_lens then
-        remap_buf(bufnr, "n", "<leader>lL", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
-        vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
-    end
+    -- if client.resolved_capabilities.code_lens then
+    --     remap_buf(bufnr, "n", "<leader>lL", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+    --     vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
+    -- end
 
     -- Per buffer LSP indicators control
-    if vim.b.lsp_virtual_text_enabled == nil then
-        vim.b.lsp_virtual_text_enabled = true
-    end
+    -- if vim.b.lsp_virtual_text_enabled == nil then
+    --     vim.b.lsp_virtual_text_enabled = true
+    -- end
 
-    if vim.b.lsp_virtual_text_mode == nil then
-        vim.b.lsp_virtual_text_mode = 'SignsVirtualText'
-    end
+    -- if vim.b.lsp_virtual_text_mode == nil then
+    --     vim.b.lsp_virtual_text_mode = 'SignsVirtualText'
+    -- end
 
 end
 
@@ -185,10 +161,7 @@ lsp_config.diagnosticls.setup {
 }
 
 local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
-if pcall(require, "cmp") and
-   pcall(require, 'cmp_nvim_lsp') then
-    lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
-end
+lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 
 for _, lsp in ipairs(lsp_servers) do
     lsp_config[lsp].setup {
