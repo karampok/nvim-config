@@ -107,7 +107,6 @@ vim.o.completeopt       = 'noinsert,menuone,noselect'
 vim.o.shortmess         = vim.o.shortmess .. 'c'
 
 -- vim clipboard copies to system clipboard
--- unnamed     = use the " register (cmd-s paste in our term)
 -- unnamedplus = use the + register (cmd-v paste in our term)
 vim.o.clipboard         = 'unnamed'
 vim.o.dictionary        = '/usr/share/dict/words'
@@ -124,32 +123,30 @@ vim.api.nvim_set_keymap('n', '<space>', '<nop>', { noremap = true })
 vim.api.nvim_set_keymap('x', '<space>', '<nop>', { noremap = true })
 vim.g.mapleader         = ' ' -- set map leader to space
 
------------------------------------------------------------
 --  PLUGINS
------------------------------------------------------------
--- local disabled_built_ins = {
-    -- '2html_plugin',
-    -- 'getscript',
-    -- 'getscriptPlugin',
-    -- 'gitcommit',
-    -- 'logipat',
-    -- 'netrw',
-    -- 'netrwFileHandlers',
-    -- 'netrwPlugin',
-    -- 'netrwSettings',
-    -- 'rrhelper',
-    -- 'spellfile_plugin',
-    -- 'tar',
-    -- 'tarPlugin',
-    -- 'vimball',
-    -- 'vimballPlugin',
-    -- 'zip',
-    -- 'zipPlugin',
--- }
--- for _, plugin in pairs(disabled_built_ins) do
-  -- vim.g['loaded_' .. plugin] = 1
--- end
---
+local disabled_built_ins = {
+    '2html_plugin',
+    'getscript',
+    'getscriptPlugin',
+    'gitcommit',
+    'logipat',
+    'netrw',
+    'netrwFileHandlers',
+    'netrwPlugin',
+    'netrwSettings',
+    'rrhelper',
+    'spellfile_plugin',
+    'tar',
+    'tarPlugin',
+    'vimball',
+    'vimballPlugin',
+    'zip',
+    'zipPlugin',
+}
+for _, plugin in pairs(disabled_built_ins) do
+  vim.g['loaded_' .. plugin] = 1
+end
+
 vim.cmd "syntax enable"
 vim.cmd "filetype plugin on"
 vim.cmd "colorscheme gruvbox"
