@@ -1,3 +1,4 @@
+local vim = vim
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
   if opts then
@@ -23,13 +24,6 @@ remap('n', 'N', 'Nzzzv', { noremap = true })
 -- Let the cursor stay where it is for joins
 remap('n', 'J', 'mzJ`v', { noremap = true })
 
-remap('n', '<leader>q', "<cmd>lua require'utils'.toggle_qf('q')<CR>", { noremap = true })
-remap('n', '[q', ':cprevious<CR>', { noremap = true })
-remap('n', ']q', ':cnext<CR>', { noremap = true })
-remap('n', '[Q', ':cfirst<CR>', { noremap = true })
-remap('n', ']Q', ':clast<CR>', { noremap = true })
-
--- Search and Replace
--- 'c.' for word, '<leader>c.' for WORD
-remap('n', 'c.', [[:%s/\<<C-r><C-w>\>//gc<Left><Left>]], { noremap = true })
-remap('n', '<leader>c.', [[:%s/\<<C-r><C-a>\>//gc<Left><Left>]], { noremap = true })
+-- clipboard
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Copy to system clipboard' })

@@ -148,4 +148,3 @@ vim.g.mapleader = ' ' -- set map leader to space
 
 --vim.cmd "syntax enable"
 vim.cmd "filetype plugin on"
-vim.cmd "colorscheme gruvbox"
