@@ -1,0 +1,5 @@
+--vim.g.vimwiki_list = { path = "~/myspace/rh-vimwiki" }
+--   syntax = 'markdown',
+--   ext = '.wiki.md',
+--   diary_frequency = 'weekly',
+--   diary_start_week_monday = 1,

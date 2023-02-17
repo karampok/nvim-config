@@ -7,6 +7,8 @@ let g:vimwiki_list = [
     \]
 let g:vimwiki_url_maxsave=0
 let g:vimwiki_listsyms = '✗○◐●✓'
+nmap <Leader>wx <Plug>VimwikiIndex
+
 
 
 command! Diary VimwikiDiaryIndex
