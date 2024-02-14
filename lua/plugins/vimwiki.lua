@@ -1,3 +1,4 @@
+local vim = vim
 vim.g.vimwiki_global_ext = 0
 vim.g.vimwiki_list = {{
       ['path'] = '~/myspace/rh-vimwiki',

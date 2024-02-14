@@ -51,16 +51,28 @@ return {
 
     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
     local lsp_attach = function(_, bufnr)
-      local opts = { buffer = bufnr, noremap = true, silent = true }
-      vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
-      vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
-      vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
-      vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
-      vim.keymap.set('n', 'go', function() vim.lsp.buf.type_definition() end, opts)
-      vim.keymap.set('n', 'gn', function() vim.lsp.buf.rename() end, opts)
-      vim.keymap.set('n', 'ga', function() vim.lsp.buf.code_action() end, opts)
+      local nmap = function(keys, func, desc)
+        if desc then
+          desc = 'LSP: ' .. desc
+        end
+
+        local opts1 = { buffer = bufnr, noremap = true, silent = true, desc = desc }
+        vim.keymap.set('n', keys, func, opts1)
+      end
+
+      local opts = { buffer = bufnr, noremap = true, silent = true, desc = "old" }
+      nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+      nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+      nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+      nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+      nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+      nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+      nmap('go', vim.lsp.buf.type_definition, 'Type [D]efinition')
+      nmap('gn', vim.lsp.buf.rename, '[G]o [R]ename')
+      nmap('ga', vim.lsp.buf.code_action, '[G]o code [A]ction')
+      nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+      nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
       vim.keymap.set('x', 'ga', function() vim.lsp.buf.range_code_action() end, opts)
-      vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help() end, opts)
       vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, opts)
       vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end, opts)
       vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end, opts)

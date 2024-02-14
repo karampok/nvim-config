@@ -27,11 +27,11 @@ local autocmds = {
   };
 
   git = {
-    { "FileType", "gitcommit", [[lua require('utils').git_commit_message_iab() ]] };
+--    { "FileType", "gitcommit", [[lua require('utils').git_commit_message_iab() ]] };
   };
 
   format = {
-    { "BufWritePre", "*.go", [[lua vim.lsp.buf.formatting_sync(nil,500)]] };
+  --  { "BufWritePre", "*.go", [[lua vim.lsp.buf.formatting_sync(nil,500)]] };
     --       { "BufWritePre", "*.go", [[lua org_imports(3000)]] };
   };
 

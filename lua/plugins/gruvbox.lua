@@ -9,7 +9,9 @@ return {
                 undercurl = true,
                 underline = true,
                 bold = true,
-                italic = false,
+                italic = {
+                  strings = true,
+                },
                 strikethrough = true,
                 invert_selection = false,
                 invert_signs = false,
