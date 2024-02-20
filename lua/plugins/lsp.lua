@@ -1,7 +1,6 @@
-local vim=vim
 return {
   'neovim/nvim-lspconfig',
-  event = 'BufReadPre',
+  event = 'VeryLazy',
   dependencies = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
@@ -14,9 +13,9 @@ return {
   config = function()
     local cmp = require('cmp')
     cmp.setup({
-      completion = {
-        autocomplete = false,
-      },
+      -- completion = {
+      --   autocomplete = false,
+      -- },
       mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -46,41 +45,43 @@ return {
 
     require('mason').setup()
     require('mason-lspconfig').setup({
-      ensure_installed = { 'bashls', 'dockerls', 'golangci_lint_ls', 'gopls', 'lua_ls', 'yamlls'}
+      ensure_installed = {
+        'bashls',
+        'pyright',
+        'dockerls',
+        'golangci_lint_ls',
+        'gopls',
+        'lua_ls',
+        'yamlls',
+      }
     })
 
     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local opts = function(bufnr, desc) return { buffer = bufnr, noremap = true, silent = true, desc = desc } end
     local lsp_attach = function(_, bufnr)
-      local nmap = function(keys, func, desc)
-        if desc then
-          desc = 'LSP: ' .. desc
-        end
-
-        local opts1 = { buffer = bufnr, noremap = true, silent = true, desc = desc }
-        vim.keymap.set('n', keys, func, opts1)
-      end
-
-      local opts = { buffer = bufnr, noremap = true, silent = true, desc = "old" }
-      nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-      nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-      nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-      nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-      nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-      nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-      nmap('go', vim.lsp.buf.type_definition, 'Type [D]efinition')
-      nmap('gn', vim.lsp.buf.rename, '[G]o [R]ename')
-      nmap('ga', vim.lsp.buf.code_action, '[G]o code [A]ction')
-      nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-      nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-      vim.keymap.set('x', 'ga', function() vim.lsp.buf.range_code_action() end, opts)
-      vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, opts)
-      vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end, opts)
-      vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end, opts)
+      vim.keymap.set('n', 'K',  function() vim.lsp.buf.hover() end,             opts(bufnr, 'lsp.buf.hover'))
+      vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end,        opts(bufnr, 'lsp.buf.definition'))
+      vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end,       opts(bufnr, 'lsp.buf.declaration'))
+      vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end,    opts(bufnr, 'lsp.buf.implementation'))
+      vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts(bufnr,'[G]oto [R]eferences'))
+      vim.keymap.set('n', 'go', function() vim.lsp.buf.type_definition() end,   opts(bufnr, 'lsp.buf.type_definition'))
+      vim.keymap.set('n', 'gn', function() vim.lsp.buf.rename() end,            opts(bufnr, 'lsp.buf.rename'))
+      vim.keymap.set('n', 'ga', function() vim.lsp.buf.code_action() end,       opts(bufnr, 'lsp.buf.code_action'))
+      vim.keymap.set('x', 'ga', function() vim.lsp.buf.range_code_action() end, opts(bufnr, 'lsp.buf.range_code_action'))
+      vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help() end,    opts(bufnr, 'lsp.buf.signature_help'))
+      vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end,     opts(bufnr, 'diagnostic.open_float'))
+      vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end,      opts(bufnr, 'diagnostic.goto_next'))
+      vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end,      opts(bufnr, 'diagnostic.goto_prev'))
+      vim.keymap.set('n', '<leader>t', function() vim.lsp.buf.format() end,     opts(bufnr, 'lsp.buf.format'))
+--      nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+--     nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+--    nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
     end
 
     local lspconfig = require('lspconfig')
     require('mason-lspconfig').setup_handlers({
       function(server_name)
+
         -- settings for all servers
         local server_setup = {
           on_attach = lsp_attach,
@@ -115,7 +116,5 @@ return {
           },
         },
       }
-
-
   end,
 }
