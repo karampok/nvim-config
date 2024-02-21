@@ -5,7 +5,6 @@ return {
     require('nvim-tree').setup({
       renderer ={
         icons = {
-          glyphs ={},
           show = {
             file = false,
             folder = false,

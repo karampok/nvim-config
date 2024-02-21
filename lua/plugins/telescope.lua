@@ -9,7 +9,19 @@ return {
       local actions = require("telescope.actions")
       require('telescope').load_extension('projects')
       require("telescope").setup({
+        pickers = {
+          find_files = {
+            find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
+          },
+          grep_string = {
+            additional_args = {'--hidden'}
+          },
+          live_grep = {
+            additional_args = {'--hidden'}
+          }
+        },
         defaults = {
+           file_ignore_patterns = { "vendor/" },
           layout_strategy = "vertical",
           layout_config = {
                 vertical = { prompt_position = "bottom", mirror = true },
