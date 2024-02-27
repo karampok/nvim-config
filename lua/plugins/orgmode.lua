@@ -17,7 +17,7 @@ return {
       org_capture_templates = {
          c = {
           description = 'code',
-          template = '* %a %? \n',
+          template = '* %a \n%?',
           target = '/home/kka/myspace/org/code.org'
          },
          n = {
@@ -26,12 +26,19 @@ return {
           headline = 'Notes',
           target = '/home/kka/myspace/org/notes.org'
           },
-         j = {
-          description = 'journal',
-          template = '* %? %T\n',
-          target = '/home/kka/myspace/org/wlog.org'
+         l = {
+          description = 'log entry',
+            template = '* %? %t',
+            target = '~/myspace/org/wlog.org',
+            datetree = true,
+         --   datetree = { time_prompt = true }
           },
-          e =  'Event',
+         -- j = {
+         --  description = 'journal',
+         --  template = '* %? %T\n',
+         --  target = '/home/kka/myspace/org/wlog.org'
+         --  },
+          e =  'event',
           er = {
             description = 'recurring',
             template = '* %? %T\n',
