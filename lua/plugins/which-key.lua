@@ -11,7 +11,19 @@ return {
     vim.keymap.set("n", "<leader>e", ":ZenMode<CR>", { desc = "ZEN" })
 
     local wk = require('which-key')
-    wk.setup({})
+    wk.setup({
+      plugins = {
+    presets = {
+      operators = false, -- adds help for operators like d, y, ...
+      motions = false, -- adds help for motions
+      text_objects = false, -- help for text objects triggered after entering an operator
+      windows = true, -- default bindings on <c-w>
+      nav = true, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = false, -- bindings for prefixed with g
+    },
+  },
+    })
     wk.register({
       ['<leader>'] = {
         g = { name = 'git' },
