@@ -16,6 +16,7 @@ vim.o.fileformat   = 'unix' -- <nl> for EOL
 vim.o.joinspaces = true -- insert spaces after '.?!' when joining lines
 vim.o.autoindent = true -- copy indent from current line on newline
 vim.o.cindent    = true -- cindent: do c-style indenting
+vim.o.conceallevel = 2
 
 vim.o.tabstop     = 2 -- Tab indentation levels every two columns
 vim.o.softtabstop = 2 -- Tab indentation when mixing tabs & spaces
@@ -121,6 +122,7 @@ vim.o.dictionary = '/usr/share/dict/words'
 vim.api.nvim_set_keymap('n', '<space>', '<nop>', { noremap = true })
 vim.api.nvim_set_keymap('x', '<space>', '<nop>', { noremap = true })
 vim.g.mapleader = ' ' -- set map leader to space
+vim.g.maplocalleader = ','
 
 --  PLUGINS
 -- local disabled_built_ins = {

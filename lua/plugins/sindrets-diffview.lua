@@ -4,6 +4,8 @@ return {
   cmd = { 'DiffviewOpen' },
 
   config = function()
-    require('diffview').setup()
+    require('diffview').setup({
+      use_icons = false,
+    })
   end
 }

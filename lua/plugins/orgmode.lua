@@ -13,7 +13,13 @@ return {
    require('orgmode').setup({
       org_agenda_files = {'/home/kka/myspace/org/**/*'},
       org_default_notes_file = '/home/kka/myspace/org/refile.org',
--- win_split_mode =  {'float', 0.9},
+      org_blank_before_new_entry = { heading = false, plain_list_item = false },
+--      win_split_mode =  {'float', 0.9},
+      mappings = { 
+        org = {
+          org_toggle_checkbox = 'cc'
+        }
+      },
       org_capture_templates = {
          c = {
           description = 'code',
@@ -30,14 +36,8 @@ return {
           description = 'log entry',
             template = '* %? %t',
             target = '~/myspace/org/wlog.org',
-            datetree = true,
-         --   datetree = { time_prompt = true }
+            datetree = { reversed = True , tree_type = 'week' },
           },
-         -- j = {
-         --  description = 'journal',
-         --  template = '* %? %T\n',
-         --  target = '/home/kka/myspace/org/wlog.org'
-         --  },
           e =  'event',
           er = {
             description = 'recurring',

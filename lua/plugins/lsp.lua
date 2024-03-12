@@ -37,9 +37,13 @@ return {
           vim.fn['vsnip#anonymous'](args.body)
         end,
       },
+      completion = {
+        keyword_length = 3,
+      },
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'buffer' },
+        { name = 'orgmode' },
       }),
     })
 
@@ -63,7 +67,7 @@ return {
       vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end,        opts(bufnr, 'lsp.buf.definition'))
       vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end,       opts(bufnr, 'lsp.buf.declaration'))
       vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end,    opts(bufnr, 'lsp.buf.implementation'))
-      vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts(bufnr,'[G]oto [R]eferences'))
+      vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts(bufnr,'lsp_references'))
       vim.keymap.set('n', 'go', function() vim.lsp.buf.type_definition() end,   opts(bufnr, 'lsp.buf.type_definition'))
       vim.keymap.set('n', 'gn', function() vim.lsp.buf.rename() end,            opts(bufnr, 'lsp.buf.rename'))
       vim.keymap.set('n', 'ga', function() vim.lsp.buf.code_action() end,       opts(bufnr, 'lsp.buf.code_action'))

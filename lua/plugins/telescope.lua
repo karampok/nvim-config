@@ -43,5 +43,7 @@ return {
       -- require("telescope").load_extension("ui-select")
       --
       })
+      local builtin = require 'telescope.builtin'
+      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     end,
   }
