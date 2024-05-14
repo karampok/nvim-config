@@ -120,5 +120,12 @@ return {
           },
         },
       }
+  lspconfig.gopls.setup{
+    settings = { gopls =  {
+    buildFlags =  {"-tags=e2etests unittests"}
+  },
+  },
+}
+
   end,
 }

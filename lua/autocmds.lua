@@ -35,10 +35,6 @@ local autocmds = {
     --       { "BufWritePre", "*.go", [[lua org_imports(3000)]] };
   };
 
-  -- diaryIndex = {
-  --     { "BufRead,BufNewFile", "*.diary.wiki", [[ VimwikiDiaryGenerateLinks ]]  };
-  -- };
-
 }
 
 nvim_create_augroups(autocmds)

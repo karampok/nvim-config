@@ -17,6 +17,9 @@ vim.o.joinspaces = true -- insert spaces after '.?!' when joining lines
 vim.o.autoindent = true -- copy indent from current line on newline
 vim.o.cindent    = true -- cindent: do c-style indenting
 vim.o.conceallevel = 2
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+
 
 vim.o.tabstop     = 2 -- Tab indentation levels every two columns
 vim.o.softtabstop = 2 -- Tab indentation when mixing tabs & spaces
@@ -63,7 +66,7 @@ vim.opt.formatoptions = vim.opt.formatoptions
 vim.o.whichwrap = vim.o.whichwrap .. '<,>,[,]'
 
 vim.o.linebreak   = true -- do not break words on line wrap
-vim.o.wrap        = false -- do not wrap long lines
+vim.o.wrap        = true -- do not wrap long lines
 vim.g.colorcolumn = '+1' -- set colorcolumn to textwidth + 1
 vim.o.colorcolumn = vim.g.colorcolumn
 

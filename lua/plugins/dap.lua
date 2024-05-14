@@ -1,6 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
-  dependencies = { 'leoluz/nvim-dap-go' , 'rcarriga/nvim-dap-ui'},
+  dependencies = { 'nvim-neotest/nvim-nio', 'leoluz/nvim-dap-go' , 'rcarriga/nvim-dap-ui'},
   event = 'VeryLazy',
   config = function()
     require('dap-go').setup()

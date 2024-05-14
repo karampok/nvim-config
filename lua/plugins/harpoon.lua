@@ -23,7 +23,8 @@ return {
         }):find()
       end
 
-    vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
+    vim.keymap.set("n", "<leader>b>", function() toggle_telescope(harpoon:list()) end,
+--    vim.keymap.set('n', '<leader>b', ':ToggleBlame virtual<CR>')
       { desc = "Open harpoon window" })
      end,
 }

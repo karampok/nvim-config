@@ -1,8 +1,7 @@
 return {
  "nvim-orgmode/orgmode",
- dependencies = { "nvim-treesitter/nvim-treesitter" },
+ dependencies = { "nvim-treesitter/nvim-treesitter",  "lukas-reineke/headlines.nvim",'akinsho/org-bullets.nvim'},
  config = function()
-   require('orgmode').setup_ts_grammar()
    require('nvim-treesitter.configs').setup({
       highlight = {
         enable = true,
@@ -17,8 +16,9 @@ return {
 --      win_split_mode =  {'float', 0.9},
       mappings = { 
         org = {
-          org_toggle_checkbox = 'cc'
-        }
+          org_toggle_checkbox = 'cc',
+        },
+        org_return_uses_meta_return = true,
       },
       org_capture_templates = {
          c = {
